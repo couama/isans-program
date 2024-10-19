@@ -7,6 +7,8 @@ import org.dal.rbchacks.isans_program.api.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TeamService {
     @Autowired
@@ -17,5 +19,8 @@ public class TeamService {
     }
     public Team saveTeamInfo(Team team) {
         return teamRepository.save(team);
+    }
+    public List<Team> getAllAllTeams(){
+        return teamRepository.findAll();
     }
 }

@@ -7,6 +7,8 @@ import org.dal.rbchacks.isans_program.api.repository.ImmigrantTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 
     public class ImmigrantTypeService {
@@ -18,6 +20,10 @@ import org.springframework.stereotype.Service;
         }
         public ImmigrantType saveImmigrantType(ImmigrantType type){
             return immigrantTypeRepository.save(type);
+        }
+        public List<ImmigrantType> getAllTtypes(){
+
+            return immigrantTypeRepository.findAll();
         }
 
     }

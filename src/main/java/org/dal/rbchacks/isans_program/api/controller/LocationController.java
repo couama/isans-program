@@ -6,10 +6,9 @@ import org.dal.rbchacks.isans_program.api.services.FunderService;
 import org.dal.rbchacks.isans_program.api.services.LocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/setup/location")
@@ -20,5 +19,9 @@ public class LocationController {
     public ResponseEntity<Location> createPerson(@RequestBody Location location) {
         Location savedType = locationService.saveLocationInfo(location);
         return ResponseEntity.ok(savedType);
+    }
+    @GetMapping()
+    public List<Location> getAllLocationTypes(){
+        return locationService.getAvailableLocation();
     }
 }

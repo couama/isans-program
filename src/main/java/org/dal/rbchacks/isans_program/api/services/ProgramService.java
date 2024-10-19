@@ -8,6 +8,8 @@ import org.dal.rbchacks.isans_program.api.repository.ProgramRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProgramService {
     @Autowired
@@ -16,9 +18,10 @@ public class ProgramService {
     public ProgramService(ProgramRepository programRepository) {
         this.programRepository = programRepository;
     }
-
-
     public Program saveProgram(Program program) {
         return programRepository.save(program);
+    }
+    public List<Program> getActivePrograms(){
+        return programRepository.findAll();
     }
 }
